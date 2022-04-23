@@ -47,9 +47,9 @@ function lowOrHigh() {
     }
 }
 
-// function respondToLowOrHigh() {
-
-// }
+function guessLow(control) {
+    
+}
 
 lessButton.addEventListener('click', function() {
     console.log('less than yo');
