@@ -1,6 +1,8 @@
 'use strict';
 
 const displayText = document.querySelector('.display-text');
+const lessButton = document.querySelector('.less-than');
+const greaterButton = document.querySelector('.greater-than');
 
 // What is his name?
 // Needs to reload to new screen after receiving input?
@@ -24,8 +26,7 @@ function generateRandomNumber10() {
 
 // Lower or higher guessing game
 function lowOrHigh() {
-    // const control = generateRandomNumber10();
-    const control = 5;
+    const control = generateRandomNumber10();
     console.log('control: ', control);
     let displayedNum = 0;
     if (control <= 4 ) {
@@ -35,11 +36,25 @@ function lowOrHigh() {
         let fiveResult = generate5050();
         if (fiveResult === true) {
             displayedNum = control + 2;
+            displayText.textContent = displayedNum;
         } else {
             displayedNum = control - 2;
+            displayText.textContent = displayedNum;
         }
     } else if (control >= 6) {
         displayedNum = control - 2;
         displayText.textContent = displayedNum;
     }
 }
+
+// function respondToLowOrHigh() {
+
+// }
+
+lessButton.addEventListener('click', function() {
+    console.log('less than yo');
+});
+
+greaterButton.addEventListener('click', function() {
+    console.log('greater than yo');
+});
