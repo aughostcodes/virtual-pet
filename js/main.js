@@ -24,7 +24,8 @@ function generateRandomNumber10() {
 
 // Lower or higher guessing game
 function lowOrHigh() {
-    const control = generateRandomNumber10();
+    // const control = generateRandomNumber10();
+    const control = 5;
     console.log('control: ', control);
     let displayedNum = 0;
     if (control <= 4 ) {
