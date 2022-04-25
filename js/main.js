@@ -29,9 +29,17 @@ function lowOrHigh() {
     const control = generateRandomNumber10();
     console.log('control: ', control);
     let displayedNum = 0;
-    if (control <= 4 ) {
-        displayedNum = control + 2;
-        displayText.textContent = displayedNum;
+    if (control === 1) {
+        
+    } else if (control <= 4) {
+        let fiveResult = generate5050();
+        if (fiveResult === true) {
+            displayedNum = control + 2;
+            displayText.textContent = displayedNum;
+        } else {
+            displayedNum = control - 2;
+            displayText.textContent = displayedNum;
+        }
     } else if (control === 5) {
         let fiveResult = generate5050();
         if (fiveResult === true) {
@@ -48,13 +56,13 @@ function lowOrHigh() {
 }
 
 function guessLow(control) {
-    
+
 }
 
-lessButton.addEventListener('click', function() {
+lessButton.addEventListener('click', function () {
     console.log('less than yo');
 });
 
-greaterButton.addEventListener('click', function() {
+greaterButton.addEventListener('click', function () {
     console.log('greater than yo');
 });
