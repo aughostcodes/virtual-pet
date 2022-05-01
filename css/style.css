@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: antiquewhite;
+}
+
 .main-wrapper {
     text-align: center;
 }
@@ -24,11 +28,21 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 3fr 1fr;
-    border: 1px solid red;
+    border: 2px solid #888;
+    border-radius: 3rem;
+    justify-content: center;
+    background-color: aliceblue;
 }
 
-.lcd-screen .action-icon {
-    border: 1px solid blue;
+.action-icon {
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-solid {
+    font-size: 3rem;
 }
 
 .feed-icon {
@@ -54,6 +68,10 @@ main {
 .character-screen {
     grid-column: 1 / -1;
     grid-row: 2;
+}
+
+.ghost-character {
+    width: 65%;
 }
 
 .main-wrapper .display-text {
