@@ -12,8 +12,57 @@
     margin: 1em 0;
 }
 
+main {
+    margin: 0 auto;
+    display: grid;
+    justify-content: stretch;
+    width: 80%;
+    height: 80vh;
+}
+
+.lcd-screen {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 3fr 1fr;
+    border: 1px solid red;
+}
+
+.lcd-screen .action-icon {
+    border: 1px solid blue;
+}
+
+.feed-icon {
+    grid-column: 1 / 2;
+    grid-row: 1;
+}
+
+.sleep-icon {
+    grid-column: 2 / 3;
+    grid-row: 1;
+}
+
+.play-icon {
+    grid-column: 3 / 4;
+    grid-row: 1;
+}
+
+.medicate-icon {
+    grid-column: 4 / -1;
+    grid-row: 1;
+}
+
+.character-screen {
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
 .main-wrapper .display-text {
     margin-bottom: 1em;
+    display: none;
+}
+
+.game-buttons {
+    display: none;
 }
 
 .play-again {
