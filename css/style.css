@@ -1,3 +1,14 @@
+/* // What is his name?
+// Needs to reload to new screen after receiving input?
+
+
+// Starts with 50% hunger, happiness, energy
+
+// Options: feed, sleep, play, medicate, bathe, stats, scold
+
+// Games: number guessing game, slot machine, matching game */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -72,6 +83,7 @@ main {
 
 .ghost-character {
     width: 65%;
+    margin-top: 1rem;
 }
 
 .main-wrapper .display-text {
