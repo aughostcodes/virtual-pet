@@ -3,6 +3,7 @@
 const displayText = document.querySelector('.display-text');
 const lessButton = document.querySelector('.less-than');
 const greaterButton = document.querySelector('.greater-than');
+const playAgainButton = document.querySelector('.play-again');
 
 // What is his name?
 // Needs to reload to new screen after receiving input?
@@ -10,11 +11,12 @@ const greaterButton = document.querySelector('.greater-than');
 
 // Starts with 50% hunger, happiness, energy
 
+// Options: feed, sleep, play, medicate, bathe, stats, scold
 
 // Games: number guessing game, slot machine, matching game
 
 
-// Random true or false {
+// Random true or false
 function generate5050() {
     return Math.random() < 0.5;
 }
@@ -24,16 +26,18 @@ function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Random number from 2 - 8
-// function generateRandomNumber2To8() {
-//     return Math.floor(Math.random() * (8 - 2 + 1)) + 2;
-// }
-
 // Lower or higher guessing game
-function lowOrHigh() {
-    const control = generateRandomNumber(1, 9);
-    console.log('control: ', control);
+function lowOrHighGame() {
+    let control = generateRandomNumber(1, 9);
+    // console.log('control: ', control);
     let displayedNum = 0;
+    let winTally = 0;
+    let loseTally = 0;
+    lessButton.addEventListener('click', guessLow);
+    greaterButton.addEventListener('click', guessHigh);
+    playAgainButton.addEventListener('click', playAnotherRound);
+
+
     if (control === 1 || control === 9) {
         displayText.textContent = generateRandomNumber(2, 8);
     } else if (control === 2) {
@@ -68,33 +72,67 @@ function lowOrHigh() {
         if (sixSevenResult === true) {
             displayedNum = control + 2;
             displayText.textContent = displayedNum;
-        } else if (control === 8) {
-            let eightResult = generate5050();
-            if (eightResult === true) {
-                displayedNum = control + 1;
-                displayText.textContent = displayedNum;
-            } else {
-                displayedNum = control - 2;
-                displayText.textContent = displayedNum;
-            }
+        } else {
+            displayedNum = control - 2;
+            displayText.textContent = displayedNum;
+        }
+    } else if (control === 8) {
+        let eightResult = generate5050();
+        if (eightResult === true) {
+            displayedNum = control + 1;
+            displayText.textContent = displayedNum;
+        } else {
+            displayedNum = control - 2;
+            displayText.textContent = displayedNum;
         }
     }
-    // return control;
-}
+    return control;
 
-function guessLow(control) {
-    if (control < displayText.textContent.value) {
-        console.log('guessing low?');
+    function clearCounts() {
+        control = 0;
+        displayedNum = 0;
+    }
+
+    function guessLow() {
+        if (control < displayText.textContent) {
+            console.log(`${control} is less than ${displayText.textContent}! You win this round!`);
+            winTally += 1;
+            checkTally();
+            clearCounts();
+        } else {
+            console.log(`Nope, try again!`);
+            loseTally += 1;
+            checkTally();
+            clearCounts();
+        }
+    }
+
+    function guessHigh() {
+        if (control > displayText.textContent) {
+            console.log(`${control} is greater than ${displayText.textContent}! You win this round!`);
+            winTally += 1;
+            checkTally();
+            clearCounts();
+        } else {
+            console.log('Nope, try again!');
+            loseTally += 1;
+            checkTally();
+            clearCounts();
+        }
+
+    }
+
+    function checkTally() {
+        if (winTally === 3) {
+            console.log(`You win the game!`);
+        }
+        if (loseTally === 3) {
+            console.log(`Sorry, you lose the game. Try again!`);
+        }
+    }
+
+    function playAnotherRound() {
+        clearCounts();
+        lowOrHighGame();
     }
 }
-
-function guessHigh(control) {
-    if (control > displayText.textContent.value) {
-        console.log('control: ', control);
-        console.log('guessing high?');
-    }
-}
-
-lessButton.addEventListener('click', guessLow);
-
-greaterButton.addEventListener('click', guessHigh);
