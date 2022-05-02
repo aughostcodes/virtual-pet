@@ -28,13 +28,9 @@ class ResetToNewPet {
     }
 }
 
-// const newThing = new ResetToNewPet(0, 13, 50, 80, 20);
-// console.log('newThing: ', newThing);
-
 window.onload = function () {
     setStorageName();
     setDisplayName();
-    // return newThing = new ResetToNewPet(0, 8, 50, 80, 20);
 }
 
 /* ===================================
@@ -94,13 +90,14 @@ attentionButton.addEventListener('click', function () {
 
 /* ===================================
 
-        DOCUMENT SELECTORS
+    SET UP PET OBJECT AND NAME
 
 =================================== */
 
+let petName = '';
+
 function setStorageName() {
-    const petName = localStorage.getItem('name');
-    // let namedNewPet = {};
+    petName = localStorage.getItem('name');
     if (!petName) {
         const name = prompt('What is your pet\'s name?');
         localStorage.setItem('name', name);
@@ -115,5 +112,6 @@ function setDisplayName() {
 function createNewPet() {
     const namedNewPet = new ResetToNewPet(0, 12, 50, 75, 25);
     console.log(namedNewPet);
+    return namedNewPet;
 }
 
