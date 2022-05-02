@@ -34,7 +34,7 @@ class ResetToNewPet {
 window.onload = function () {
     setStorageName();
     setDisplayName();
-    return newThing = new ResetToNewPet(0, 8, 50, 80, 20);
+    // return newThing = new ResetToNewPet(0, 8, 50, 80, 20);
 }
 
 /* ===================================
@@ -104,12 +104,16 @@ function setStorageName() {
     if (!petName) {
         const name = prompt('What is your pet\'s name?');
         localStorage.setItem('name', name);
-        const namedNewPet = new ResetToNewPet(0, 12, 50, 75, 25);
-        return namedNewPet;
+        createNewPet();
     }
 };
 
 function setDisplayName() {
     return titleAndName.textContent = localStorage.getItem('name');
+}
+
+function createNewPet() {
+    const namedNewPet = new ResetToNewPet(0, 12, 50, 75, 25);
+    console.log(namedNewPet);
 }
 
