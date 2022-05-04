@@ -1,5 +1,7 @@
 // import * as gamefunctions from './lowOrHighGame';
 
+// 100Devs class 31 to refresh regarding class constructors and inheritance
+
 // What is its name? Store in localStorage - CHECK, but using prompt(), obviously not a long-term solution. Eventually refactor this.
 
 // Needs to reload to new screen after receiving input?
@@ -18,13 +20,14 @@
 
 =================================== */
 
-class ResetToNewPet {
-    constructor(age, size, hunger, happiness, discipline) {
+class NewPet {
+    constructor(age, size, hunger, happiness, discipline, name) {
         this.age = age;
         this.size = size;
         this.hunger = hunger;
         this.happiness = happiness;
         this.discipline = discipline;
+        this.name = name;
     }
 }
 
@@ -102,6 +105,7 @@ function setStorageName() {
         const name = prompt('What is your pet\'s name?');
         localStorage.setItem('name', name);
         createNewPet();
+        petName = petName;
     }
 };
 
@@ -110,7 +114,7 @@ function setDisplayName() {
 }
 
 function createNewPet() {
-    const namedNewPet = new ResetToNewPet(0, 12, 50, 75, 25);
+    const namedNewPet = new NewPet(0, 12, 50, 75, 25, petName);
     console.log(namedNewPet);
     return namedNewPet;
 }
